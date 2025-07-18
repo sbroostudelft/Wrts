@@ -1,0 +1,22 @@
+English,Spanish
+closet,el armario
+cabinet,el gabinete
+bookshelf,la librería (or la estantería)
+projector,el proyector
+door,la puerta
+coat rack,el perchero
+map,el mapa
+trash can,la papelera
+teacher,el profesor
+board,la pizarra
+marker,el rotulador
+eraser,el borrador
+chair,la silla
+backpack,la mochila
+desk,la mesa
+book,el libro
+pencil case,el estuche
+scissors,las tijeras
+pen,el bolígrafo
+dictionary,el diccionario
+laptop,el ordenador (or la computadora)
