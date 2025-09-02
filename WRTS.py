@@ -70,6 +70,7 @@ class LanguageLearnerApp(tk.Tk):
         self.current_card = None
         self.total_unique = 0
         self.correct_count = 0
+        self.answer_revealed = False  # set in __init__
 
         # For file naming with levels
         self.base_name = None  # The "base" name (e.g. "vocab")
@@ -488,54 +489,67 @@ class LanguageLearnerApp(tk.Tk):
         self.next_card()
 
     def setup_session_frame(self):
-        """
-        Display a WRTS-like layout:
-          - Top header bar
-          - Main content area with the question/answer
-          - Running score
-          - Shifted to the right by adding horizontal padding
-        """
-        # Create a main frame (session_frame) for everything
-        # Add a left padding to shift the layout to the right (adjust as desired)
-        self.session_frame = tk.Frame(self, bg="#F3F3F3")
-        self.session_frame.pack(fill="both", expand=True, padx=100, pady=75)  # <--- SHIFT RIGHT
+        """Initial layout with header + container for content."""
+        self.state = "normal"  # add this line if not already set
 
-        ############################################################################
+        self.session_frame = tk.Frame(self, bg="#F3F3F3")
+        self.session_frame.pack(fill="both", expand=True, padx=100, pady=75)
+
         # Top Header Bar
-        ############################################################################
         header_frame = tk.Frame(self.session_frame, bg="#D5D0E5", height=50)
         header_frame.pack(fill="x", side="top")
 
-        # "Wrts" label on the left
-        wrts_label = tk.Label(
-            header_frame, text="Wrts", font=("Helvetica", 18, "bold"),
-            bg="#D5D0E5", fg="black"
-        )
+        wrts_label = tk.Label(header_frame, text="Wrts", font=("Helvetica", 18, "bold"),
+                              bg="#D5D0E5", fg="black")
         wrts_label.pack(side="left", padx=20, pady=10)
 
-        # A placeholder subtitle (customize or remove)
-        subtitle_label = tk.Label(
-            header_frame, text=f"Frans apprandre 2 h2 ({len(self.df) if self.df is not None else 0})", font=("Helvetica", 14),
-            bg="#D5D0E5", fg="black"
-        )
+        subtitle_label = tk.Label(header_frame,
+                                  text=f"Frans apprandre 2 h2 ({len(self.df) if self.df is not None else 0})",
+                                  font=("Helvetica", 14), bg="#D5D0E5", fg="black")
         subtitle_label.pack(side="left", padx=20)
 
-        ############################################################################
-        # Main Content
-        ############################################################################
-        content_frame = tk.Frame(self.session_frame, bg="#FDFBF6", bd=2, relief="groove")
+        toggle_button = tk.Button(header_frame, text="Toggle Fullscreen", font=("Helvetica", 12, "bold"),
+                                  command=self.toggle_fullscreen, bg="#EEE", fg="black")
+        toggle_button.pack(side="right", padx=20, pady=10)
+
+        self.score_label = tk.Label(header_frame, text="Score: 0/0",
+                                    font=("Helvetica", 12, "bold"), bg="#D5D0E5", fg="black")
+        self.score_label.pack(side="right", padx=20)
+
+        # Progress bar variable
+        self.progress_var = tk.DoubleVar(value=0)
+
+        # Progress bar widget
+        self.progress_bar = ttk.Progressbar(header_frame, variable=self.progress_var, maximum=100, length=150)
+        self.progress_bar.pack(side="right", padx=10, pady=10)
+
+        # Optional % text
+        self.progress_label = tk.Label(header_frame, text="0%", font=("Helvetica", 10),
+                                       bg="#D5D0E5", fg="black")
+        self.progress_label.pack(side="right", padx=5)
+
+        # Container that we will rebuild for each layout
+        self.content_container = tk.Frame(self.session_frame, bg="#F3F3F3")
+        self.content_container.pack(fill="both", expand=True)
+
+        # ✅ Build normal layout now so widgets exist before next_card()
+        self.build_normal_layout()
+
+    def build_normal_layout(self):
+        # Clear ONLY the content container, not the whole session_frame
+        for widget in self.content_container.winfo_children():
+            widget.destroy()
+
+        content_frame = tk.Frame(self.content_container, bg="#FDFBF6", bd=2, relief="groove")
         content_frame.pack(fill="both", expand=True, padx=30, pady=20)
 
-        # The "Question" label: shows the source word
+        # Question + answer/feedback
         self.question_label = tk.Label(
             content_frame, text="", font=("Helvetica", 16, "bold"),
             bg="#FDFBF6", fg="black"
         )
         self.question_label.pack(pady=(20, 5), anchor="w")
 
-        # Feedback labels:
-        # 1) feedback_label: "Het antwoord is fout" or "Het antwoord is goed"
-        # 2) correct_answer_label: "Het goede antwoord is: XXX"
         self.feedback_label = tk.Label(content_frame, text="", font=("Helvetica", 14, "bold"),
                                        bg="#FDFBF6", fg="red")
         self.feedback_label.pack(pady=(5, 5), anchor="w")
@@ -544,13 +558,10 @@ class LanguageLearnerApp(tk.Tk):
                                              bg="#FDFBF6", fg="black")
         self.correct_answer_label.pack(pady=(0, 10), anchor="w")
 
-        # Depending on the method, show different UI:
         if self.learning_method_var.get() == "dictee":
-            # The user will type the answer in an Entry widget
             self.answer_entry = tk.Entry(content_frame, font=("Helvetica", 14), width=40)
             self.answer_entry.pack(pady=(5, 5), anchor="w")
 
-            # A button to check the answer
             self.check_button = tk.Button(
                 content_frame, text="OK", font=("Helvetica", 12, "bold"),
                 command=self.check_dictee_answer, bg="#EEE", fg="black"
@@ -558,48 +569,169 @@ class LanguageLearnerApp(tk.Tk):
             self.check_button.pack(pady=(5, 15), anchor="w")
 
         else:
-            # "In Gedachten" method
-            # Show a label for hidden/visible target
             self.answer_label = tk.Label(content_frame, text="???", font=("Helvetica", 16),
                                          bg="#FDFBF6", fg="gray")
             self.answer_label.pack(pady=(5, 10), anchor="w")
 
-            # Show Answer button
-            show_answer_btn = tk.Button(
+            self.show_answer_btn = tk.Button(
                 content_frame, text="Toon Antwoord", font=("Helvetica", 12, "bold"),
                 command=self.show_answer, bg="#EEE", fg="black"
             )
-            show_answer_btn.pack(pady=5, anchor="w")
+            self.show_answer_btn.pack(pady=5, anchor="w")
 
-            # Correct/Incorrect buttons
             button_frame = tk.Frame(content_frame, bg="#FDFBF6")
             button_frame.pack(pady=10, anchor="w")
 
-            correct_btn = tk.Button(
+            self.correct_btn = tk.Button(
                 button_frame, text="Goed", font=("Helvetica", 12, "bold"),
                 command=self.mark_correct, bg="#AEE8AE"
             )
-            correct_btn.pack(side="left", padx=5)
+            self.correct_btn.pack(side="left", padx=5)
 
-            incorrect_btn = tk.Button(
+            self.incorrect_btn = tk.Button(
                 button_frame, text="Fout", font=("Helvetica", 12, "bold"),
                 command=self.mark_incorrect, bg="#F8B4B4"
             )
-            incorrect_btn.pack(side="left", padx=5)
+            self.incorrect_btn.pack(side="left", padx=5)
 
-        # Score label at the bottom
-        self.score_label = tk.Label(
-            content_frame, text="Score tot nu toe: 0 goed, 0 fout",
-            font=("Helvetica", 12, "italic"), bg="#FDFBF6", fg="black"
-        )
-        self.score_label.pack(pady=(10, 20), anchor="w")
+        # Restore current card state if available
+        if hasattr(self, "current_card") and self.current_card:
+            self.question_label.config(text=self.current_card["source"])
+            if hasattr(self, "answer_label"):
+                self.answer_label.config(
+                    text=self.current_card["target"] if self.answer_revealed else "???"
+                )
+
+    def build_fullscreen_layout(self):
+        """Build the fullscreen layout (split 50/50)."""
+        # Clear ONLY the content container
+        for widget in self.content_container.winfo_children():
+            widget.destroy()
+
+        content_frame = tk.Frame(self.content_container, bg="#FDFBF6")
+        content_frame.pack(fill="both", expand=True)
+
+        # Split vertically
+        top_frame = tk.Frame(content_frame, bg="#FDFBF6")
+        top_frame.pack(side="top", fill="both", expand=True)
+
+        bottom_frame = tk.Frame(content_frame, bg="#FDFBF6")
+        bottom_frame.pack(side="bottom", fill="both", expand=True)
+
+        # Force geometry manager to give different weights
+        top_frame.pack_propagate(False)
+        bottom_frame.pack_propagate(False)
+
+        # Resize manually
+        content_frame.update_idletasks()
+        h = content_frame.winfo_height()
+        top_frame.config(height=int(h * 0.45)) #must equal ~1 together
+        bottom_frame.config(height=int(h * 0.55)) #must equal ~1 together
+
+        # --- TOP ---
+        self.question_label = tk.Label(top_frame, text="", font=("Helvetica", 36, "bold"),
+                                       bg="#FDFBF6", fg="black")
+        self.question_label.pack(pady=(40, 20))
+
+        self.feedback_label = tk.Label(top_frame, text="", font=("Helvetica", 20, "bold"),
+                                       bg="#FDFBF6", fg="red")
+        self.feedback_label.pack(pady=(10, 10))
+
+        self.correct_answer_label = tk.Label(top_frame, text="", font=("Helvetica", 20),
+                                             bg="#FDFBF6", fg="black")
+        self.correct_answer_label.pack(pady=(0, 20))
+
+        if self.learning_method_var.get() == "dictee":
+            self.answer_entry = tk.Entry(top_frame, font=("Helvetica", 22), width=40)
+            self.answer_entry.pack(pady=(10, 20))
+
+            self.check_button = tk.Button(top_frame, text="OK", font=("Helvetica", 20, "bold"),
+                                          command=self.check_dictee_answer, bg="#EEE", fg="black")
+            self.check_button.pack(pady=(20, 20))
+        else:
+            self.answer_label = tk.Label(top_frame, text="???", font=("Helvetica", 28),
+                                         bg="#FDFBF6", fg="gray")
+            self.answer_label.pack(pady=(20, 40))
+
+            # --- BOTTOM ---
+            self.show_answer_btn = tk.Button(bottom_frame, text="Toon Antwoord", font=("Helvetica", 28, "bold"),
+                                             command=self.show_answer, bg="#EEE", fg="black")
+            self.show_answer_btn.place(relx=0.5, rely=0.3, anchor="center", relwidth=0.975, relheight=0.5)
+
+            self.correct_btn = tk.Button(bottom_frame, text="Goed", font=("Helvetica", 28, "bold"),
+                                         command=self.mark_correct, bg="#AEE8AE")
+            self.correct_btn.place(relx=0.25, rely=0.775, anchor="center", relwidth=0.4875, relheight=0.4)
+
+            self.incorrect_btn = tk.Button(bottom_frame, text="Fout", font=("Helvetica", 28, "bold"),
+                                           command=self.mark_incorrect, bg="#F8B4B4")
+            self.incorrect_btn.place(relx=0.75, rely=0.775, anchor="center", relwidth=0.4875, relheight=0.4)
+
+        # Restore current card state if available
+        if hasattr(self, "current_card") and self.current_card:
+            self.question_label.config(text=self.current_card["source"])
+            if hasattr(self, "answer_label"):
+                self.answer_label.config(
+                    text=self.current_card["target"] if self.answer_revealed else "???"
+                )
+
+    def toggle_fullscreen(self):
+        """Switch between normal and fullscreen layouts."""
+        if self.state == "normal":
+            self.state = "fullscreen"
+            self.attributes("-fullscreen", True)
+            self.session_frame.pack_configure(padx=0, pady=0)
+            self.build_fullscreen_layout()
+        else:
+            self.state = "normal"
+            self.attributes("-fullscreen", False)
+            self.session_frame.pack_configure(padx=100, pady=75)
+            self.build_normal_layout()
+
+    def update_layout(self, fullscreen):
+        """
+        Update the layout dynamically based on the mode (fullscreen or normal).
+        """
+        if fullscreen:
+            # Adjust padding and widget sizes for fullscreen
+            self.session_frame.pack(fill="both", expand=True, padx=0, pady=0)
+            self.question_label.config(font=("Helvetica", 24, "bold"))
+            self.feedback_label.config(font=("Helvetica", 20, "bold"))
+            self.correct_answer_label.config(font=("Helvetica", 20))
+            if hasattr(self, "answer_label"):
+                self.answer_label.config(font=("Helvetica", 24))
+
+            # Adjust button sizes and positions for fullscreen
+            if hasattr(self, "show_answer_btn"):
+                self.show_answer_btn.place(relx=0.5, rely=0.75, anchor="center", relwidth=0.8, relheight=0.1)
+            if hasattr(self, "correct_btn"):
+                self.correct_btn.place(relx=0.25, rely=0.9, anchor="center", relwidth=0.4, relheight=0.1)
+            if hasattr(self, "incorrect_btn"):
+                self.incorrect_btn.place(relx=0.75, rely=0.9, anchor="center", relwidth=0.4, relheight=0.1)
+        else:
+            # Restore padding and widget sizes for normal mode
+            self.session_frame.pack(fill="both", expand=True, padx=100, pady=75)
+            self.question_label.config(font=("Helvetica", 16, "bold"))
+            self.feedback_label.config(font=("Helvetica", 14, "bold"))
+            self.correct_answer_label.config(font=("Helvetica", 14))
+            if hasattr(self, "answer_label"):
+                self.answer_label.config(font=("Helvetica", 16))
+
+            # Restore button sizes and positions for normal mode
+            if hasattr(self, "show_answer_btn"):
+                self.show_answer_btn.place_forget()
+                self.show_answer_btn.pack(pady=5, anchor="w")
+            if hasattr(self, "correct_btn"):
+                self.correct_btn.place_forget()
+                self.correct_btn.pack(side="left", padx=5)
+            if hasattr(self, "incorrect_btn"):
+                self.incorrect_btn.place_forget()
+                self.incorrect_btn.pack(side="left", padx=5)
+
 
     def show_answer(self):
-        """
-        For "In Gedachten" method: reveal the target word.
-        """
         if self.current_card:
             self.answer_label.config(text=self.current_card["target"])
+            self.answer_revealed = True
 
     def mark_correct(self):
         """
@@ -609,6 +741,7 @@ class LanguageLearnerApp(tk.Tk):
             self.current_card["completed"] = True
             self.correct_count += 1
         self.update_score_label()
+        self.update_progress_label()
         self.next_card()
 
     def mark_incorrect(self):
@@ -621,6 +754,7 @@ class LanguageLearnerApp(tk.Tk):
             self.incorrect_overall += 1
             self.schedule_incorrect_card(self.current_card)
         self.update_score_label()
+        self.update_progress_label()
         self.next_card()
 
     def check_dictee_answer(self):
@@ -650,6 +784,7 @@ class LanguageLearnerApp(tk.Tk):
             self.schedule_incorrect_card(self.current_card)
 
         self.update_score_label()
+        self.update_progress_label()
         self.after(1200, self.next_card)
 
     def next_card(self):
@@ -657,6 +792,7 @@ class LanguageLearnerApp(tk.Tk):
         Fetch the next card from the queue. If empty, proceed to final queue or end.
         """
         # Clear any old feedback
+        self.answer_revealed = False
         self.feedback_label.config(text="", fg="red")
         self.correct_answer_label.config(text="")
 
@@ -709,6 +845,18 @@ class LanguageLearnerApp(tk.Tk):
         self.score_label.config(
             text=f"Score until now: {self.correct_count} correct, {self.incorrect_overall} incorrect"
         )
+
+    def update_progress_label(self):
+        """
+        Update the progress bar and percentage label.
+        """
+        if self.total_unique > 0:
+            progress_percent = (self.correct_count / self.total_unique) * 100
+        else:
+            progress_percent = 0
+
+        self.progress_var.set(progress_percent)
+        self.progress_label.config(text=f"{int(progress_percent)}%")
 
     def end_session(self):
         """

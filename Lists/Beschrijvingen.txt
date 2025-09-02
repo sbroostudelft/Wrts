@@ -4,7 +4,7 @@ setecientos,700
 novecientos,900
 quince,15
 Abierto,open
-Aburrido,boring
+Aburrido,boring/bored
 Agradable,pleasant
 Alegre,"cheerful/happy"
 Alto,tall
