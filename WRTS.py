@@ -519,6 +519,11 @@ class LanguageLearnerApp(tk.Tk):
         # Progress bar variable
         self.progress_var = tk.DoubleVar(value=0)
 
+        # Add a label for words remaining in the queue
+        self.words_remaining_label = tk.Label(header_frame, text="Words Remaining: 0",
+                                              font=("Helvetica", 12, "bold"), bg="#D5D0E5", fg="black")
+        self.words_remaining_label.pack(side="right", padx=20)
+
         # Progress bar widget
         self.progress_bar = ttk.Progressbar(header_frame, variable=self.progress_var, maximum=100, length=150)
         self.progress_bar.pack(side="right", padx=10, pady=10)
@@ -800,21 +805,27 @@ class LanguageLearnerApp(tk.Tk):
         if self.learning_method_var.get() == "dictee" and hasattr(self, "answer_entry"):
             self.answer_entry.delete(0, tk.END)
 
-        if not self.queue:
-            # If main queue empty, load final queue or end
-            if self.final_queue:
-                self.queue = self.final_queue.copy()
-                self.final_queue = []
-            else:
-                self.end_session()
-                return
+        # Load final_queue into queue if queue is empty
+        if not self.queue and self.final_queue:
+            self.queue = self.final_queue.copy()
+            self.final_queue = []
+            self.reviewing_final_queue = True  # flag to bypass "completed" check
 
-        self.current_card = self.queue.pop(0)
+        # Find the next card
+        while self.queue:
+            self.current_card = self.queue.pop(0)
 
-        # Skip a card that is already completed
-        if self.current_card["completed"]:
-            self.next_card()
+            # Show the card if it's not completed OR we are reviewing the final queue
+            if not self.current_card.get("completed", False) or getattr(self, "reviewing_final_queue", False):
+                break
+        else:
+            # End session if no cards are left
+            self.end_session()
             return
+
+        # If we were reviewing the final queue and it’s now empty, reset the flag
+        if getattr(self, "reviewing_final_queue", False) and not self.queue:
+            self.reviewing_final_queue = False
 
         # Show the new question
         self.question_label.config(text=self.current_card["source"])
@@ -834,8 +845,7 @@ class LanguageLearnerApp(tk.Tk):
         self.queue.insert(insert_index, card)
 
         # Schedule it at the end only once
-        if not card["final_scheduled"]:
-            card["final_scheduled"] = True
+        if card not in self.final_queue:
             self.final_queue.append(card)
 
     def update_score_label(self):
@@ -843,20 +853,26 @@ class LanguageLearnerApp(tk.Tk):
         Update the "Score tot nu toe: x goed, y fout" label.
         """
         self.score_label.config(
-            text=f"Score until now: {self.correct_count} correct, {self.incorrect_overall} incorrect"
+            text=f"Score: {self.correct_count} correct, {self.incorrect_overall} incorrect"
         )
 
     def update_progress_label(self):
         """
         Update the progress bar and percentage label.
         """
+        # Update words remaining label
+        words_remaining = len(self.queue) + len(self.final_queue)
+        self.words_remaining_label.config(text=f"Words Remaining: {words_remaining}")
+
         if self.total_unique > 0:
-            progress_percent = (self.correct_count / self.total_unique) * 100
+            progress_percent = ((self.total_unique - words_remaining) / self.total_unique) * 100
         else:
             progress_percent = 0
 
         self.progress_var.set(progress_percent)
         self.progress_label.config(text=f"{int(progress_percent)}%")
+
+
 
     def end_session(self):
         """
@@ -915,6 +931,10 @@ class LanguageLearnerApp(tk.Tk):
         result_label = ttk.Label(self.end_frame, text=result_text, font=("Helvetica", 18))
         result_label.pack(pady=20)
 
+        # Button to redo the list
+        redo_btn = ttk.Button(self.end_frame, text="Redo List", command=self.redo_list)
+        redo_btn.pack(pady=10)
+
         # Frame to select 'n' for incorrectly answered words
         select_frame = ttk.Frame(self.end_frame)
         select_frame.pack(pady=10)
@@ -930,6 +950,14 @@ class LanguageLearnerApp(tk.Tk):
         # Button to go back to home screen
         home_btn = ttk.Button(self.end_frame, text="Go to Home Screen", command=self.restart)
         home_btn.pack(pady=20)
+
+    def redo_list(self):
+        """
+        Reset the session and go back to the settings frame to redo the list.
+        """
+        if self.end_frame:
+            self.end_frame.destroy()
+        self.setup_settings_frame()
 
     def create_new_list(self):
         """
