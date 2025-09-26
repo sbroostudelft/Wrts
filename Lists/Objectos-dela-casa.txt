@@ -1,0 +1,30 @@
+Spanish,English
+el teléfono,the telephone
+el jarrón,the vase
+la televisión,televisie
+la calefacción,verwarming
+la cuadro,painting/picture
+la estantería,boekenkast
+el sillón,armchair
+el sofá,the sofa
+las cortinas,de gordijnen
+la alfombra,the rug
+el cenicero,vieze asbak
+el despacho,bureau
+el colchón,matras
+la almohada,het kussen
+las mantas,dekbed
+las sábanas,lakens
+el almario,kledingkast
+el despertador,wekker
+la mesilla,nachtkastje
+la lámpara,een lamp
+la litera,stapelbed
+la ducha,douche
+el gel,douche gel
+la esponja,spons
+la bañera,badkuip
+la toalla,towel
+el secador de pelo,fohn
+el cepillo de pelo,borstel
+el peine,kam

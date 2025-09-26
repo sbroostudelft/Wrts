@@ -1,0 +1,32 @@
+Spanish,English
+el cepillo de dientes,tandenborstel
+la pasta de dientes,tandpasta
+el lavabo,wastafel
+los cortaúñas,nagelschaar
+el jabón,zeep blok
+el servicio/aseo,baño
+el papel higiénico,wc papier
+la maquinilla de afeitar,scheermes
+los bastoncillos,wattestaafjes
+la lavadora,wasmachine
+el tostador,broodrooster
+la sartén,frying pan
+el cazo,saucepan
+la campana,afzuigkap
+la cocinera,kookstel
+la microondas,de ping
+el fregadero,gootsteen
+el lavavajillas,vaatwasser
+la cafeteria,koffiezet apparaat
+la nevera,koelkast
+el congelador,vriezer
+el cuchillo,mes
+la cuchara,lepel
+el tenedor,vork
+la copa,wijnglas
+el vaso,een glas
+la taza,mok
+los platos,borden
+la servilleta,servet
+la basura,afvalbak
+el cepillo,borstel

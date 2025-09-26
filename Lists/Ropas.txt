@@ -1,0 +1,32 @@
+Spanish,English
+Las botas,boots
+El cuero,leather
+Las mallas,leggings
+La blusa,blouse
+Los calcetines,socks
+El impermeable,raincoat
+La sudadera,sweatshirt
+El vestido,dress
+El abrigo,coat
+Los pantelones,jeans
+La falda,skirt
+Los guantes,gloves
+El Jersey,sweater
+La cazadora,leather jacket
+La corbata,tie
+El bufanda,scarf
+Las zapatillas deportivas,sneakers
+Los zapatos de vestir,dress shoes
+El cinturón,belt
+La chaqueta,blazer/jas
+La camiseta,t-shirt
+Los pantalones anchos,wide-leg pants
+La camisa de cuadros,plaid shirt
+El chándal,tracksuit
+en línea,online
+el probador,het pashokje
+un regalo,gift
+charlar un rato,een tijdje kletsen
+echar un vistazo,een kijkje nemen
+la mitad,de helft
+

@@ -1,0 +1,31 @@
+Spanish,English
+Arrogante,arrogant
+Tímido,shy
+Ajustado,tight
+Alegre,cheerful/happy
+Difícil,difficult
+Grosero,rude
+Suelto,loose
+Rígido,rigid
+Perezoso,lazy
+Grueso,thick/stout
+Presumido,conceited/show-off
+Creído,conceited
+Peluquería,hairdresser
+Agitado,restless/agitated
+Calvicie,baldness
+Flequillo,fringe/bangs
+Agradable,pleasant
+Cortés,polite
+Miedoso,fearful
+Simpático,nice/friendly
+Incómodo,uncomfortable
+Asustadizo,easily scared
+Cobarde,cowardly/coward
+Borde,rude (colloquial)
+Descortés,impolite
+Rizado,Curly
+Liso,Stijl (haar)
+Cariñoso,warm/caring
+Recogido,Bundled together hair
+Rugoso/Irregular,uneven/rough

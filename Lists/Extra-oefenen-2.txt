@@ -1,0 +1,30 @@
+Spanish,English
+De punto,Knitted
+De mezclilla,Denim
+Las mangas,Sleeves
+Con cremallera,Zipped
+Asado,bbq/roast
+Bandeja,tray
+Poner,to put
+Casi,Bijna
+Deprisa,Snel
+Arreglarse,klaar maken
+Marcharse,vertrekken
+Bufete,Advocatenkantoor
+Temprano,Vroeg
+Llegar,Komen
+Deber,zou moeten
+Andando,lopend
+un rato,een tijdje
+El suelo,ground
+Al lado del,naast de
+La cosa,thing
+Algo,something/some
+Destruyar,Vernietigen
+Seguido,Continuous
+Perdido,Lost
+Bastante,enough!/plenty
+Acontecimiento,Event
+Rebajar,Reduce/Discount
+La verdad,The truth
+Alguna,Someone/Something/any

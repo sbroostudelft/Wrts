@@ -1,0 +1,27 @@
+Spanish,English
+Cuñada,el hermano de mi esposa/zwager
+las sábanas,de lakens
+vasco,Basque
+convivir,Samenwonen
+Viudo,widowed
+Cariñoso,affectionate
+Cordinal,friendly/warm
+Frofundo,profound/deep
+Pacífico,peaceful
+Adelgazar,to loose weight
+Pelirrojo,ginger
+patilla,watermelon/sidepiece/temple
+ondulado,golvend 
+rizado,krullend
+Una perilla,a goatee
+Sonrisa,smile
+Fuerte,strong/resilient
+Algodón,Cotton
+Anticuado,utdated
+De temporada,Seasonal
+Holgada,Loose
+De lana,wool
+Brillante,Bright
+Sutil,Subtle
+Con flecos,Fringed
+A rayas,striped

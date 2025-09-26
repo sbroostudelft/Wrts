@@ -1,0 +1,101 @@
+Spanish,English
+Acostarse,"to go to bed / to lie down"
+Levantarse,"to get up"
+Ducharse,"to take a shower"
+Lavarse las manos,"to wash one's hands"
+Peinarse,"to comb one's hair"
+Maquillarse,"to put on makeup"
+Afeitarse,"to shave"
+Vestirse,"to get dressed"
+Despertarse,"to wake up"
+Desvestirse,"to get undressed"
+Estirarse,"to stretch"
+Secarse el pelo,"to dry one's hair"
+Sentarse,"to sit down"
+Bañarse,"to bathe / to take a bath"
+Mirarse en el espejo,"to look at oneself in the mirror"
+Cepillarse los dientes,"to brush one's teeth"
+Spanish,English
+Casi,bijna
+Deprisa,snel (haastig)
+Arreglarse (Regular),zich klaarmaken
+Marcharse (Regular),vertrekken
+El bufete,advocatenkantoor
+Temprano,vroeg
+Llegar (Regular),aankomen
+Pensar (E>IE),denken
+Deber (Regular),moeten / zou moeten
+Andando,lopend
+Un rato,een tijdje
+Levantarse (Regular),zich opstaan
+Ducharse (Regular),zich douchen
+Bajar (Regular),naar beneden gaan
+Preparar (Regular),voorbereiden
+Subir (Regular),omhoog gaan / beklimmen
+Abrir (Regular),openen
+Terminar (Regular),eindigen / beëindigen
+Maquillarse (Regular),zich opmaken
+Peinarse (Regular),zich kammen
+Estudiar (Regular),studeren
+Gustar (Regular),bevallen / leuk vinden
+Encantar (Regular),dol zijn op
+Aprender (Regular),leren
+Tomar (Regular),nemen
+Esperar (Regular),wachten / hopen
+Charlar (Regular),praten / kletsen
+Pasear (Regular),wandelen
+Cocinar (Regular),koken
+Cenar (Regular),dineren
+Intentar (Regular),proberen
+Vivir (Regular),leven / wonen
+Tardar (Regular),tijd nemen / duren
+Entrar (Regular),binnenkomen
+Creer (Regular),geloven
+Acabar (Regular),eindigen
+Spanish,English
+Despertar (E>IE),wakker maken / worden
+Empezar (E>IE),beginnen
+Sentarse (E>IE),gaan zitten
+Encender (E>IE),aanzetten / aansteken
+Querer (E>IE),willen / houden van
+Calentar (E>IE),verwarmen
+Entender (E>IE),begrijpen
+Divertirse (E>IE),zich vermaken
+Preferir (E>IE),voorkeur geven aan
+Merendar (E>IE),een tussendoortje nemen
+Perder (E>IE),verliezen
+Cerrar (E>IE),sluiten
+Pesar (E>IE),wegen
+Venir (E>IE + Yo vengo),komen
+Sonar (O>UE),geluiden maken / rinkelen
+Soler (O>UE),to usually do
+Almorzar (O>UE),lunchen
+Soñar (O>UE),dromen
+Volver (O>UE),terugkeren
+Cocer (O>UE),koken
+Acostarse (O>UE),naar bed gaan
+Poder (O>UE),kunnen
+Mostrar (O>UE),tonen / laten zien
+Aprobar (O>UE),goedkeuren / slagen
+Costar (O>UE),kosten
+Encontrar (O>UE),vinden
+Jugar (U>UE),spelen
+Vestirse (E>I),zich aankleden
+Conseguir (E>I + Yo consigo),bereiken / verkrijgen
+Seguir (E>I),volgen
+Servir (E>I),serveren / dienen
+Medir (E>I),meten
+Pedir (E>I),to ask / order
+Decir (E>I + Yo digo),zeggen
+Hacer (Yo hago),doen / maken
+Salir (Yo salgo),uitgaan / vertrekken
+Estar (Yo estoy),zijn / zich bevinden
+Recoger (Yo recojo),ophalen
+Caer (Yo caigo),vallen
+Caber (Yo quepo),passen
+Conocer (Yo conozco),kennen
+Dar (Yo doy),geven
+Saber (Yo sé),weten
+Poner (Yo pongo),plaatsen / zetten
+Parecer (Yo parezco),lijken
+Traer (Yo traigo),meebrengen

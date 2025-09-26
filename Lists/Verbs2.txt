@@ -1,0 +1,37 @@
+Spanish,English
+Casi,bijna
+Deprisa,snel (haastig)
+Arreglarse (Regular),zich klaarmaken
+Marcharse (Regular),vertrekken
+El bufete,advocatenkantoor
+Temprano,vroeg
+Llegar (Regular),aankomen
+Pensar (E>IE),denken
+Deber (Regular),moeten / zou moeten
+Andando,lopend
+Un rato,een tijdje
+Levantarse (Regular),zich opstaan
+Ducharse (Regular),zich douchen
+Bajar (Regular),naar beneden gaan
+Preparar (Regular),voorbereiden
+Subir (Regular),omhoog gaan / beklimmen
+Abrir (Regular),openen
+Terminar (Regular),eindigen / beëindigen
+Maquillarse (Regular),zich opmaken
+Peinarse (Regular),zich kammen
+Estudiar (Regular),studeren
+Gustar (Regular),bevallen / leuk vinden
+Encantar (Regular),dol zijn op
+Aprender (Regular),leren
+Tomar (Regular),nemen
+Esperar (Regular),wachten / hopen
+Charlar (Regular),praten / kletsen
+Pasear (Regular),wandelen
+Cocinar (Regular),koken
+Cenar (Regular),dineren
+Intentar (Regular),proberen
+Vivir (Regular),leven / wonen
+Tardar (Regular),tijd nemen / duren
+Entrar (Regular),binnenkomen
+Creer (Regular),geloven
+Acabar (Regular),eindigen

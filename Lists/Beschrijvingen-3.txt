@@ -1,0 +1,25 @@
+Spanish,English
+Sensible,sensitive
+Serio,serious
+Silencioso,silent
+Simpático,"nice/friendly"
+Sucio,dirty
+Tacaño,stingy/skeer
+Tímido,shy
+Tonto,"silly/foolish/dumb"
+Trabajador,"hard-working"
+Triste,sad
+Usado,used
+Valiente,brave
+Vago,"lazy (colloquial)"
+Viejo,old
+Spanish,English
+Casado,married
+Soltero,single
+Formal,formal
+Informal,informal
+Grueso,"thick/stout"
+Fino,thin/fine
+Suelto,loose
+Ajustado,tight
+Complicado,complicated

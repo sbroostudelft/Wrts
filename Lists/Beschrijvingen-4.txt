@@ -1,0 +1,23 @@
+Spanish,English
+Sencillo,simple
+Frío,cold
+Distante,distant
+Largo,long
+Impaciente,impatient
+Cortés,polite
+Plano,flat
+Flequillo,fringe/bangs
+Cañas,gray hairs
+Calvicie,baldness
+Tener entradas,receding hairline
+Dieta,diet
+Peluquería,hairdresser
+Teñirse,to dye (hair)
+Miedoso,fearful
+Asustadizo,easily scared
+Rígido,rigid
+Agitado,restless/agitated
+Suave,soft
+Egoísta,selfish
+Presumido,conceited/show-off
+Estricto,strict
