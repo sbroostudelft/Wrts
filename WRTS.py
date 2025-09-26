@@ -393,12 +393,11 @@ class LanguageLearnerApp(tk.Tk):
         target_col = self.target_lang_var.get()
 
         displayed_df = self.df[[source_col, target_col]].copy()
-        displayed_df.columns = ["Source", "Target"]  # rename for clarity in the table
 
         # Create a Treeview to display the words
         self.word_table = ttk.Treeview(table_frame, columns=("source", "target"), show="headings", height=10)
-        self.word_table.heading("source", text="Source")
-        self.word_table.heading("target", text="Target")
+        self.word_table.heading("source", text=source_col)  # Set header to source language
+        self.word_table.heading("target", text=target_col)  # Set header to target language
         self.word_table.column("source", width=200)
         self.word_table.column("target", width=200)
         self.word_table.pack(side="left", fill="both", expand=True)
@@ -410,7 +409,7 @@ class LanguageLearnerApp(tk.Tk):
 
         # Insert the words into the table
         for idx, row in displayed_df.iterrows():
-            self.word_table.insert("", "end", values=(row["Source"], row["Target"]))
+            self.word_table.insert("", "end", values=(row[source_col], row[target_col]))
 
         # Frame for method selection
         method_frame = ttk.Frame(self.settings_frame)
@@ -436,9 +435,27 @@ class LanguageLearnerApp(tk.Tk):
                                             state="disabled")
         self.mismatch_spinbox.pack(anchor="w")
 
+        # Add the "Switch Languages" button
+        switch_lang_btn = ttk.Button(self.settings_frame, text="Switch Languages", command=self.switch_languages)
+        switch_lang_btn.pack(pady=5)
+
         # Start session button
         start_session_btn = ttk.Button(self.settings_frame, text="Start Session", command=self.start_session)
-        start_session_btn.pack(pady=20)
+        start_session_btn.pack(pady=10)
+
+    def switch_languages(self):
+        """
+        Swap the source and target languages and update the displayed table.
+        """
+        # Correctly swap the values of source_lang_var and target_lang_var
+        source_lang = self.source_lang_var.get()
+        target_lang = self.target_lang_var.get()
+        self.source_lang_var.set(target_lang)
+        self.target_lang_var.set(source_lang)
+
+        # Refresh the table to reflect the swapped columns
+        self.settings_frame.destroy()
+        self.setup_settings_frame()
 
     def update_mismatch_state(self):
         """
@@ -474,6 +491,11 @@ class LanguageLearnerApp(tk.Tk):
             }
             self.cards.append(card)
 
+
+        # Filter banned words
+        self.banned_words = ["English", "english", "Nederlands", "nederlands", "Frans", "frans", "Spanish", "spanish"]
+        self.filter_banned_words()
+
         self.total_unique = len(self.cards)
         self.correct_count = 0
         self.incorrect_overall = 0  # Keep track of total times answered incorrectly (for the session UI if desired)
@@ -487,6 +509,20 @@ class LanguageLearnerApp(tk.Tk):
         self.settings_frame.destroy()
         self.setup_session_frame()
         self.next_card()
+
+    def filter_banned_words(self):
+        """
+        Remove cards that contain any banned words in either the source or target text.
+        """
+        if not hasattr(self, "banned_words") or not self.banned_words:
+            return  # No banned words to filter
+
+        # Filter out cards containing banned words
+        self.cards = [
+            card for card in self.cards
+            if not any(banned_word.lower() in card["source"].lower() or banned_word.lower() in card["target"].lower()
+                       for banned_word in self.banned_words)
+        ]
 
     def setup_session_frame(self):
         """Initial layout with header + container for content."""
@@ -962,7 +998,7 @@ class LanguageLearnerApp(tk.Tk):
     def create_new_list(self):
         """
         Create a new list of words that were answered incorrectly >= n times,
-        then save it as a file with the next level prefix.
+        then save it as a .txt file with the next level prefix.
         """
         n = self.new_list_n_var.get()
         # Filter the cards
@@ -983,11 +1019,23 @@ class LanguageLearnerApp(tk.Tk):
 
         # Generate the next level prefix
         next_level = self.level + 1
-        new_filename = f"{next_level:02d}_{self.base_name}.xlsx"
+        new_filename = f"{next_level:02d}_{self.base_name}.txt"
+
+        # Use the predefined base folder path
+        base_folder = r"C:\Users\sambr\Documents\CODING\Languages\Wrts\Lists"  # Replace with your desired base folder path
+
+        # Create a subfolder for the current level
+        level_folder = os.path.join(base_folder, f"Level {next_level}")
+        if not os.path.exists(level_folder):
+            os.makedirs(level_folder)
+
+        # Save the new file in the level folder
+        new_filepath = os.path.join(level_folder, new_filename)
 
         try:
-            new_df.to_excel(new_filename, index=False)
-            messagebox.showinfo("Success", f"Created new list:\n{new_filename}")
+            # Save as .txt with the desired format
+            new_df.to_csv(new_filepath, index=False, header=True, sep=",")
+            messagebox.showinfo("Success", f"Created new list:\n{new_filepath}")
         except Exception as e:
             messagebox.showerror("Error", f"Could not create file: {e}")
 
