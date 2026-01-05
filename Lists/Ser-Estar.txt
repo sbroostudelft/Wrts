@@ -1,0 +1,41 @@
+Spanish,English
+ser abierto,comunicativo / sociable / extrovertido // open / outgoing
+estar abierto,resultado de abrir // open (physically)
+ser aburrido,algo que cansa // boring
+estar aburrido,que no se divierte // bored
+ser atento,servicial / amable / cortés // considerate / courteous
+estar atento,concentrado / presta atención // attentive / paying attention
+ser blanco,raza / color // white (race/colour)
+estar blanco,pálido // pale
+ser bueno,honesto / buena persona // good person / morally good
+estar bueno,con buen sabor / atractivo // tasty; attractive
+ser cerrado,introvertido / tímido // introverted / closed-minded
+estar cerrado,no abierto // closed (physically)
+ser despierto,inteligente / ágil mentalmente // sharp / quick-minded
+estar despierto,no dormido // awake
+ser interesado,egoísta / materialista // selfish / self-interested
+estar interesado,tener interés por algo // interested (in something)
+ser libre,no dependiente / con libertad // free (independent)
+estar libre,no ocupado / no en la cárcel // free (available)
+ser listo,inteligente // clever
+estar listo,preparado // ready
+ser malo,cruel / de mala calidad // bad / evil / poor quality
+estar malo,enfermo / estropeado // ill; spoiled (food)
+ser moreno,con pelo negro / piel oscura // dark-haired / naturally dark-skinned
+estar moreno,bronceado // tanned
+ser muerto,ser muy aburrido (coloquial) // to be a boring person
+estar muerto,sin vida // dead
+ser negro,raza / color // black (race/colour)
+estar negro,enfadado / harto // furious / fed up
+ser nuevo,recién hecho // brand-new (freshly made)
+estar nuevo,no usado // unused (in good condition)
+ser orgulloso,soberbio / no admite errores // arrogant
+estar orgulloso,satisfecho // proud (in a positive sense)
+ser rico,tener dinero // rich (money)
+estar rico,con buen sabor // tasty
+ser verde,color / connotación sexual // green (colour) / “dirty-minded”
+estar verde,no maduro / inexperto // unripe; inexperienced
+ser viejo,anciano / añejo // old (age)
+estar viejo,estropeado / pasado // worn out; spoiled
+ser vivo,activo / lleno de vida // lively / sharp
+estar vivo,no muerto // alive

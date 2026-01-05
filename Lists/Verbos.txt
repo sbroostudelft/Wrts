@@ -1,0 +1,165 @@
+Spanish,English
+Acostarse,"to go to bed / to lie down"
+Levantarse,"to get up"
+Ducharse,"to take a shower"
+Lavarse las manos,"to wash one's hands"
+Peinarse,"to comb one's hair"
+Maquillarse,"to put on makeup"
+Afeitarse,"to shave"
+Vestirse,"to get dressed"
+Despertarse,"to wake up"
+Desvestirse,"to get undressed"
+Estirarse,"to stretch"
+Secarse el pelo,"to dry one's hair"
+Sentarse,"to sit down"
+Bañarse,"to bathe / to take a bath"
+Mirarse en el espejo,"to look at oneself in the mirror"
+Cepillarse los dientes,"to brush one's teeth"
+Spanish,English
+Casi,bijna
+Deprisa,snel (haastig)
+Arreglarse,zich klaarmaken
+Marcharse,vertrekken
+El bufete,advocatenkantoor
+Temprano,vroeg
+Llegar,aankomen
+Pensar (E>IE),denken
+Deber,moeten / zou moeten
+Andando,lopend
+Un rato,een tijdje
+Bajar,naar beneden gaan
+Preparar,voorbereiden
+Subir,omhoog gaan / beklimmen
+Abrir,openen
+Terminar,eindigen / beëindigen
+Peinarse,zich kammen
+Estudiar,studeren
+Gustar,bevallen / leuk vinden
+Encantar,dol zijn op
+Aprender,leren
+Tomar,nemen
+Esperar,wachten / hopen
+Charlar,praten / kletsen
+Pasear,wandelen
+Cocinar,koken
+Cenar,dineren
+Intentar,proberen
+Vivir,leven / wonen
+Tardar,tijd nemen / duren
+Entrar,binnenkomen
+Creer,geloven
+Acabar,eindigen
+Spanish,English
+Empezar (E>IE),beginnen
+Encender (E>IE),aanzetten / aansteken
+Querer (E>IE),willen / houden van
+Calentar (E>IE),verwarmen
+Entender (E>IE),begrijpen
+Divertirse (E>IE),zich vermaken
+Preferir (E>IE),voorkeur geven aan
+Merendar (E>IE),een tussendoortje nemen
+Perder (E>IE),verliezen
+Cerrar (E>IE),sluiten
+Pesar,wegen
+Venir (E>IE + Yo vengo),komen
+Sonar (O>UE),geluiden maken / rinkelen
+Soler (O>UE),to usually do
+Almorzar (O>UE),lunchen
+Soñar (O>UE),dromen
+Volver (O>UE),terugkeren
+Cocer (O>UE + Yo cuezo),koken
+Poder (O>UE),kunnen
+Mostrar (O>UE),tonen / laten zien
+Aprobar (O>UE),goedkeuren / slagen
+Costar (O>UE),kosten
+Encontrar (O>UE),vinden
+Jugar (U>UE),spelen
+Seguir (E>I),volgen
+Servir (E>I),serveren / dienen
+Medir (E>I),meten
+Pedir (E>I),to ask / order
+Decir (E>I + Yo digo),zeggen
+Hacer (Yo hago),doen / maken
+Salir (Yo salgo),uitgaan / vertrekken
+Estar (Yo estoy),zijn / zich bevinden
+Recoger (Yo recojo),ophalen
+Caer (Yo caigo),vallen
+Caber (Yo quepo),passen
+Conocer (Yo conozco),kennen
+Dar (Yo doy),geven
+Saber (Yo sé),weten
+Poner (Yo pongo),plaatsen / zetten
+Parecer (Yo parezco),lijken
+Traer (Yo traigo),meebrengen
+Andar,to walk
+Apagar,to turn off
+Aprenderse,to memorize
+Atender (E>IE),to attend to / assist
+Beber,to drink
+Buscar,to look for
+Caerse (Yo me caigo),to fall down
+Conducir (Yo conduzco),to drive
+Conseguir (E>I + Yo consigo),to get / obtain
+Contar (O>UE),to tell / count
+Corregir (E>I + Yo corrijo),to correct
+Correr,to run
+Crecer (Yo crezco),to grow
+Cruzar,to cross
+Decidir,to decide
+Defender (E>IE),to defend
+Devolver (O>UE),to return (something)
+Destruir (Yo destruyo),to destroy
+Dirigir (Yo dirijo),to direct / manage
+Discutir,to argue / discuss
+Dormir (O>UE),to sleep
+Doler (O>UE),to hurt
+Elegir (E>I + Yo elijo),to choose
+Enseñar,to teach
+Enviar (i>í),to send
+Escoger (Yo escojo),to choose
+Escribir,to write
+Escuchar,to listen
+Explicar,to explain
+Ganarse,to earn / gain
+Guardar,to keep / save
+Herir (E>IE),to wound
+Incluir (Yo incluyo),to include
+Ir (Irregular),to go
+Llamar,to call
+Llover (O>UE),to rain
+Mentir (E>IE),to lie
+Morir (O>UE),to die
+Nacer (Yo nazco),to be born
+Nevar (E>IE),to snow
+Obedecer (Yo obedezco),to obey
+Ofrecer (Yo ofrezco),to offer
+Oír (Irregular),to hear
+Olvidar,to forget
+Parar,to stop
+Pertenecer (Yo pertenezco),to belong
+Probar (O>UE),to try / taste
+Recordar (O>UE),to remember
+Reír (Yo río),to laugh
+Romper,to break
+Valer (Yo valgo),to be worth
+Ver (Yo veo),to see
+Tener,to have
+Llevar,to carry / to wear / to take
+Quedarse,to stay / to remain
+Dejar,to leave / to allow
+Pasar,to pass / to happen / to spend time
+Tocar,to touch / to play (an instrument)
+Sentir (E>IE),to feel
+Perderse (E>IE),to get lost
+Responder,to answer
+Cambiar,to change
+Sacar,to take out / to get
+Mantener (E>IE + Yo mantengo),to maintain
+Parecerse a (Yo me parezco),to look like / to resemble
+Usar,to use
+Ayudar,to help
+Producir (Yo produzco),to produce
+Quedar,to meet up / to arrange to meet
+Seguir + gerundio (E>I),to keep doing something
+Volver a + infinitivo (O>UE),to do something again
+Dejar de + infinitivo,to stop doing something

@@ -14,7 +14,7 @@ Los guantes,gloves
 El Jersey,sweater
 La cazadora,leather jacket
 La corbata,tie
-El bufanda,scarf
+La bufanda,scarf
 Las zapatillas deportivas,sneakers
 Los zapatos de vestir,dress shoes
 El cinturón,belt

@@ -3,7 +3,7 @@ el teléfono,the telephone
 el jarrón,the vase
 la televisión,televisie
 la calefacción,verwarming
-la cuadro,painting/picture
+el cuadro,painting/picture
 la estantería,boekenkast
 el sillón,armchair
 el sofá,the sofa

@@ -1,0 +1,53 @@
+Spanish,English
+Andar,to walk
+Apagar,to turn off
+Aprenderse,to memorize
+Atender (E>IE),to attend to / assist
+Beber,to drink
+Buscar,to look for
+Caerse (Yo me caigo),to fall down
+Conducir (Yo conduzco),to drive
+Conseguir (E>I + Yo consigo),to get / obtain
+Contar (O>UE),to tell / count
+Corregir (E>I + Yo corrijo),to correct
+Correr,to run
+Crecer (Yo crezco),to grow
+Cruzar,to cross
+Decidir,to decide
+Defender (E>IE),to defend
+Devolver (O>UE),to return (something)
+Destruir (Yo destruyo),to destroy
+Dirigir (Yo dirijo),to direct / manage
+Discutir,to argue / discuss
+Dormir (O>UE),to sleep
+Doler (O>UE),to hurt
+Elegir (E>I + Yo elijo),to choose
+Enseñar,to teach
+Enviar (Yo envío),to send
+Escoger (Yo escojo),to choose
+Escribir,to write
+Escuchar,to listen
+Explicar,to explain
+Ganarse,to earn / gain
+Guardar,to keep / save
+Herir (E>IE),to wound
+Incluir (Yo incluyo),to include
+Ir (Irregular),to go
+Llamar,to call
+Llover (O>UE),to rain
+Mentir (E>IE),to lie
+Morir (O>UE),to die
+Nacer (Yo nazco),to be born
+Nevar (E>IE),to snow
+Obedecer (Yo obedezco),to obey
+Ofrecer (Yo ofrezco),to offer
+Oír (Irregular),to hear
+Olvidar,to forget
+Parar,to stop
+Pertenecer (Yo pertenezco),to belong
+Probar (O>UE),to try / taste
+Recordar (O>UE),to remember
+Reír (Yo río),to laugh
+Romper,to break
+Valer (Yo valgo),to be worth
+Ver (Yo veo),to see
